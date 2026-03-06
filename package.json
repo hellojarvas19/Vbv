@@ -1,0 +1,9 @@
+{
+  "name": "vbv-checker",
+  "version": "1.0.0",
+  "description": "VBV Checker API",
+  "main": "api.php",
+  "scripts": {
+    "start": "php -S 0.0.0.0:${PORT:-8080} -t ."
+  }
+}

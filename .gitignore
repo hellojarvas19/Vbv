@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.log
+.env
+.DS_Store
+checkout_page.html
+debug_token.py
+find_token.py
+vbv.py
+vbv.php
+user_agent.py

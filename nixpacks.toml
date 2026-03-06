@@ -1,0 +1,10 @@
+nixpacks.version = "1.21.0"
+
+[phases.setup]
+nixPkgs = ["php82", "php82Extensions.curl", "php82Extensions.mbstring"]
+
+[phases.build]
+cmds = ["echo 'Build complete'"]
+
+[start]
+cmd = "php -S 0.0.0.0:${PORT:-8080} -t ."
