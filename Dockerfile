@@ -3,7 +3,10 @@ FROM php:8.2-cli
 WORKDIR /app
 
 COPY api.php .
+COPY docker-entrypoint.sh /usr/local/bin/
+
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 EXPOSE 8080
 
-CMD ["php", "-S", "0.0.0.0:8080", "-t", "."]
+ENTRYPOINT ["docker-entrypoint.sh"]
