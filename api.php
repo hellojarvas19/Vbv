@@ -6,6 +6,9 @@ ini_set('max_execution_time', 60);
 error_reporting(0);
 ini_set('display_errors', 0);
 
+// Prevent double output
+ob_start();
+
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET');
@@ -248,7 +251,13 @@ curl_close($ch);
 
 $vbv = $rd['paymentMethod']['threeDSecureInfo']['status'] ?? 'unknown';
 
+// Clear any previous output
+ob_end_clean();
+
+// Send response
+header('Content-Type: application/json');
 echo json_encode(['vbv' => $vbv]);
+exit;
 
 // Get card from query parameter
 $cardInput = $_GET['cc'] ?? '';
